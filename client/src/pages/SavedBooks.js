@@ -2,10 +2,10 @@
 import React from 'react';
 import {
   Container,
-  Card,
+  Col,
   Button,
+  Card,
   Row,
-  Col
 } from 'react-bootstrap';
 
 // import { getMe, deleteBook } from '../utils/API';
@@ -30,13 +30,10 @@ const SavedBooks = () => {
     }
 
     try {
-      const { user } = await removeBook({
-        variables: {
-          bookId: bookId,
-        },
+      const { data } = await removeBook({
+        variables: { bookId },
       });
 
-      userData = user;
       removeBookId(bookId);
     } catch (err) {
       console.error(err);
