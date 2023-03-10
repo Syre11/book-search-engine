@@ -5,7 +5,8 @@ import {
   Form,
   Button,
   Card,
-  Row
+  Row,
+  Jumbotron
 } from 'react-bootstrap';
 
 import Auth from '../utils/auth';
@@ -90,7 +91,7 @@ const SearchBooks = () => {
 
   return (
     <>
-      <div fluid className='text-light bg-dark pt-5'>
+      <Jumbotron fluid className='text-light bg-dark pt-5'>
         <Container>
           <h1>Search for Books!</h1>
           <Form onSubmit={handleFormSubmit}>
@@ -113,7 +114,7 @@ const SearchBooks = () => {
             </Form.Row>
           </Form>
         </Container>
-      </div>
+      </Jumbotron>
 
       <Container>
         <h2>
