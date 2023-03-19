@@ -19,7 +19,7 @@ const server = new ApolloServer({
   context: authMiddleware,
 });
 
-server.expressMiddleware({app});
+server.applyMiddleware({app});
 
 // const httpServer = http.createServer(app);
 
