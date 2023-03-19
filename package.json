@@ -18,7 +18,7 @@
   "dependencies": {
     "@apollo/link-context": "^2.0.0-beta.3",
     "@apollo/react-hooks": "^4.0.0",
-    "@apollo/server": "^4.4.1",
-    "apollo-link-context": "^1.0.20"
+    "apollo-link-context": "^1.0.20",
+    "apollo-server-express": "^2.15.0"
   }
 }
