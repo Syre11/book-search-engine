@@ -35,32 +35,21 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
-// const startApolloServer = async (typeDefs, resolvers) => {
-//   await server.start();
-//   app.use(
-//     "/graphql",
-//     expressMiddleware(server, {
-//       context: async ({ req }) => ({ token: req.headers.token }),
-//     })
-//   );
+const startApolloServer = async (typeDefs, resolvers) => {
+  await server.start();
+  app.use(
+    "/graphql",
+    expressMiddleware(server, {
+      context: async ({ req }) => ({ token: req.headers.token }),
+    })
+  );
 
-//   db.once("open", () => {
-//     app.listen(PORT, () => {
-//       console.log(`🌍 Now listening on localhost:${PORT}`);
-//       console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
-//     });
-//   });
-// };
-
-// startApolloServer(typeDefs, resolvers);
-
-db.once("open", () => {
-  app.listen(PORT, () => {
-    console.log(`API server running on port ${PORT}!`);
-    // log where we can go to test our GQL API
-    console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+  db.once("open", () => {
+    app.listen(PORT, () => {
+      console.log(`🌍 Now listening on localhost:${PORT}`);
+      console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
+    });
   });
-});
-db.on("error", (err) => {
-  console.error("MongoDB connection error: ", err);
-});
+};
+
+startApolloServer(typeDefs, resolvers);
